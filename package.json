@@ -1,6 +1,6 @@
 {
   "name": "karma-transform-preprocessor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Karma preprocessor to apply arbitrary transforms on served files",
   "main": "lib/index.js",
   "author": "Davyd McColl",
@@ -22,6 +22,7 @@
     "preintegration-test": "run-s copy-to-node_modules",
     "integration-test": "karma start",
     "unit-test": "mocha specs/unit/**/*.js",
+    "pretest": "run-s lint",
     "test": "run-s unit-test integration-test",
     "lint": "jshint lib specs"
   },
