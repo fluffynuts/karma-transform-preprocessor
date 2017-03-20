@@ -1,0 +1,45 @@
+{
+  "name": "karma-transform-preprocessor",
+  "version": "1.0.0",
+  "description": "A Karma preprocessor to apply arbitrary transforms on served files",
+  "main": "lib/index.js",
+  "author": "Davyd McColl",
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluffynuts/karma-transform-preprocessor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fluffynuts/karma-transform-preprocessor/issues"
+  },
+  "scripts": {
+    "copy-lib-karma-transform-preprocessor-to-node_modules": "cpy lib/karma-transform-preprocessor.js node_modules/karma-transform-preprocessor/",
+    "copy-lib-index-to-node_modules": "cpy lib/index.js node_modules/karma-transform-preprocessor/",
+    "precopy-package-json-to-node_modules": "mkdirp node_modules/karma-transform-preprocessor",
+    "copy-package-json-to-node_modules": "cpy package.json node_modules/karma-transform-preprocessor/",
+    "copy-lib-to-node_modules": "run-p copy-lib-index-to-node_modules copy-lib-karma-transform-preprocessor-to-node_modules",
+    "copy-to-node_modules": "run-s copy-package-json-to-node_modules copy-lib-to-node_modules",
+    "preintegration-test": "run-s copy-to-node_modules",
+    "integration-test": "karma start",
+    "unit-test": "mocha specs/unit/**/*.js",
+    "test": "run-s unit-test integration-test",
+    "lint": "jshint lib specs"
+  },
+  "dependencies": {
+    "debug": "^2.6.3",
+    "karma": "^1.5.0",
+    "karma-jasmine": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cpy-cli": "^1.0.1",
+    "jasmine-core": "^2.5.2",
+    "jquery": "^3.2.0",
+    "jshint": "^2.9.4",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-spec-reporter": "0.0.30",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.2.0",
+    "npm-run-all": "^4.0.2"
+  }
+}
